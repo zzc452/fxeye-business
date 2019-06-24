@@ -1,0 +1,38 @@
+<template>
+  <div id="app">
+    <transition :name='transitionName'>
+        <router-view class='child-view'></router-view>
+    </transition>
+  </div>
+</template>
+<script>
+  export default{
+    data(){
+      return {
+        transitionName: ''
+      }
+    },
+    beforeRouteUpdate(to,from,next){
+      let isBack = this.$router.isBack;
+      if (isBack) {
+        this.transitionName = 'slide-right'
+      } else {
+        this.transitionName = 'slide-left'
+      }
+      this.$router.isBack = false
+      next();
+    }
+  }
+</script>
+<style lang="scss" scoped> 
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  overflow: hidden;
+  .child-view{
+    transition: all 0.3s ease;
+  }
+}
+</style>
