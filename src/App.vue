@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition :name='transitionName'>
+    <transition >
         <router-view class='child-view'></router-view>
     </transition>
   </div>
@@ -24,15 +24,16 @@
     }
   }
 </script>
-<style lang="scss" scoped> 
+
+<style lang="scss"> 
+@import '@/assets/css/skin.scss';
 #app {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #fff;
   overflow: hidden;
-  .child-view{
-    transition: all 0.3s ease;
-  }
+  // .child-view{
+  //   transition: all 0.3s ease;
+  // }
 }
 </style>

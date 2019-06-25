@@ -1,0 +1,64 @@
+<template>
+    <div id="page_find" class="content">
+        <my-header :title="title"></my-header>
+        <div class="container">
+            <div class="item-box">
+                <mt-cell title="开户记录" to="" is-link></mt-cell>
+                <mt-cell title="赞助记录" to="" is-link></mt-cell>
+            </div>
+            <div class="item-box">
+                <mt-cell title="数据统计" to="" is-link></mt-cell>
+                <mt-cell title="投放监测" :to="links" is-link></mt-cell>
+                <mt-cell title="IB直通车" to="" is-link></mt-cell>
+            </div>
+            <div class="item-box">
+                <mt-cell title="优惠券" to="" is-link></mt-cell>
+            </div>
+        </div>
+    </div>
+</template>
+<style lang="scss">
+    $cell-height:55px;
+    $font-family: 'PingFang-SC-Bold';
+    .item-box{
+        border-top:10px solid #f5f7fa;
+        .mint-cell{
+            height: $cell-height;
+            line-height: $cell-height;
+            border-top:1px solid #e1e6eb;
+            &:last-child{
+                border-bottom:1px solid #e1e6eb;
+                background: none;
+            }
+            .mint-cell-wrapper{
+                padding:0 15px;
+                font-size: 16px;
+                color: #324354;
+                font-family: $font-family;
+                background: none;
+                .mint-cell-allow-right::after{
+                    right:15px;
+                    width:7px;
+                    height:7px;
+                    border-color:#b8c2cc;
+                }
+            }
+        }
+    }
+</style>
+<script>
+import myHeader from '@/components/myHeader'
+export default{
+    components:{
+        myHeader
+    },
+    data(){
+        return{
+            title:'发现',
+            links:{
+                name:'invest'
+            }
+        }
+    }
+}
+</script>

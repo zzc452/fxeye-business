@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
+import router from '../router/router'
+import store from '../store'
 
 // css
 import '@/assets/css/reset.css'
@@ -13,6 +13,8 @@ import MintUI,{MessageBox,Toast,Indicator} from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+
+import '@/directives' 
 
 Vue.config.productionTip = false
 
