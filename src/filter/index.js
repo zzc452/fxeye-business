@@ -1,20 +1,27 @@
 export let formatDate = (timeStamp,isData)=>{
-    var date = new Date();
-        date.setTime(timeStamp * 1000);
-        var y = date.getFullYear();
-        var m = date.getMonth() + 1;
-        m = m < 10 ? ('0' + m) : m;
-        var d = date.getDate();
-        d = d < 10 ? ('0' + d) : d;
-        var h = date.getHours();
-        h = h < 10 ? ('0' + h) : h;
-        var minute = date.getMinutes();
-        var second = date.getSeconds();
-        minute = minute < 10 ? ('0' + minute) : minute;
-        second = second < 10 ? ('0' + second) : second;
-        if (isData){
-            return y + '-' + m + '-' + d;
-        } else{
-            return y + '-' + m + '-' + d+' '+h+':'+minute+':'+second;
-        }
+    format_time: function(timestamp,format){//格式化时间戳
+            timestamp=parseInt(timestamp)*1000;
+            var date = new Date(timestamp);
+            var o = {
+                "M+" :date.getMonth() + 1, // month
+                "d+" :date.getDate(), // day
+                "h+" :date.getHours(), // hour
+                "m+" :date.getMinutes(), // minute
+                "s+" :date.getSeconds(), // second
+                "q+" :Math.floor((date.getMonth() + 3) / 3), // quarter
+                "S" :date.getMilliseconds()
+                // millisecond
+            }
+            if (/(y+)/.test(format)) {
+                format = format.replace(RegExp.$1, (date.getFullYear() + "")
+                        .substr(4 - RegExp.$1.length));
+            }
+            for ( var k in o) {
+                if (new RegExp("(" + k + ")").test(format)) {
+                    format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k]
+                            : ("00" + o[k]).substr(("" + o[k]).length));
+                }
+            }
+            return format;
+        },
 }
