@@ -1,0 +1,170 @@
+1.获取线上排行
+正式地址：http://business.wweb012.fxeyeinterface.com/app/getonlinerank?top=10&dt=2019-05
+测试地址：http://192.168.1.246:4556/app/getonlinerank?top=10&dt=2019-05
+
+请求方式：GET
+请求头部：Content-Type:application/json;charset=UTF-8
+		
+参数说明：	   top       数量
+		   dt        日期（精确到月）
+		   
+返回：           
+						
+			{
+			    "result":[
+				{
+				    "TraderCode":"0001461138",
+				    "ChineseShortName":null,
+				    "EnglishShortName":"XM",
+				    "Logo":"/logo/0001461138/FXT_0001461138_400x226_92869.png",
+				    "Ico":"/ico/0001461138/FXT_0001461138_100x100_89595.png",
+				    "Effect":8.1
+				}
+			    ],
+			    "succeed":true,
+			    "message":"成功"
+			}
+返回说明：          
+			"TraderCode":"0001461138",  //交易商code
+			"ChineseShortName":null,    //中文简称
+			"EnglishShortName":"XM",    //英文简称
+			"Logo":"/logo/0001461138/FXT_0001461138_400x226_92869.png",  //交易商logo
+			"Ico":"/ico/0001461138/FXT_0001461138_100x100_89595.png",    //交易商ico
+			"Effect":8.1  //百分比
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+２.获取单个交易商线上详情
+正式地址：http://business.wweb012.fxeyeinterface.com/app/getonlinedetail?tradercode=0361170645&dt=2019-05
+测试地址：http://192.168.1.246:4556/app/getonlinedetail?tradercode=0361170645&dt=2019-05
+
+请求方式：GET
+请求头部：Content-Type:application/json;charset=UTF-8
+
+参数说明：	   tradercode	    交易商code
+		   dt		    日期（精确到月）
+返回：           
+			
+		 {
+		    "result":[
+			{
+			    "Month":"2019-05-01T00:00:00",
+			    "MediaId":1,
+			    "MediaName":"fx110"
+			},
+			{
+			    "Month":"2019-05-01T00:00:00",
+			    "MediaId":3,
+			    "MediaName":"FX168"
+			},
+			{
+			    "Month":"2019-05-01T00:00:00",
+			    "MediaId":4,
+			    "MediaName":"汇通网"
+			},
+			{
+			    "Month":"2019-05-01T00:00:00",
+			    "MediaId":22,
+			    "MediaName":"和讯"
+			}
+		    ],
+		    "succeed":true,
+		    "message":"成功"
+		}
+返回说明：           
+		"Month":"2019-05-01T00:00:00",  //时间
+		"MediaId":1,    //媒体id
+		"MediaName":"fx110"  //媒体名
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+3.获取线下排行
+正式地址：http://business.wweb012.fxeyeinterface.com/app/getofflinerank?top=10&dt=2019-05
+测试地址：http://192.168.1.246:4556/app/getofflinerank?top=10&dt=2019-05
+
+请求方式：GET
+请求头部：Content-Type:application/json;charset=UTF-8
+
+参数说明：	   top       数量
+		   dt        日期（精确到月）
+返回：           
+		{
+		    "result":[
+			{
+			    "TraderCode":"9731833838",
+			    "ChineseShortName":"友邦外汇",
+			    "EnglishShortName":"UBANK",
+			    "Logo":"/logo/9731833838/FXT9731833838_295660.png",
+			    "Ico":"/ico/9731833838/FXT9731833838_766657.png",
+			    "people":1569
+			},
+			{
+			    "TraderCode":"0001816946",
+			    "ChineseShortName":null,
+			    "EnglishShortName":"GMI",
+			    "Logo":"/logo/0001816946/FXT_0001816946_400x226.png",
+			    "Ico":"/ico/0001816946/FXT_0001816946_100x100_23183.png",
+			    "people":1524
+			},
+			{
+			    "TraderCode":"0001390005",
+			    "ChineseShortName":null,
+			    "EnglishShortName":"Exness",
+			    "Logo":"/logo/0001390005/FXT_0001390005_400x226.png",
+			    "Ico":"/ico/0001390005/FXT_0001390005_100x100.png",
+			    "people":1305
+			}
+		    ],
+		    "succeed":true,
+		    "message":"成功"
+		}
+返回说明：
+
+
+		"TraderCode":"9731833838",  //交易商code
+		"ChineseShortName":"友邦外汇",  //中文简称
+		"EnglishShortName":"UBANK", //英文简称
+		"Logo":"/logo/9731833838/FXT9731833838_295660.png",  //交易商logo
+		"Ico":"/ico/9731833838/FXT9731833838_766657.png",   //交易商ico
+		"people":1569   人数
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.获取单个交易商线下详情
+正式地址：http://business.wweb012.fxeyeinterface.com/app/getofflinedetail?tradercode=0361170645&dt=2019-05
+测试地址：http://192.168.1.246:4556/app/getofflinedetail?tradercode=0001390005&dt=2019-05
+
+请求方式：GET
+请求头部：Content-Type:application/json;charset=UTF-8
+
+参数说明：	   tradercode	    交易商code
+		   dt		    日期（精确到月）
+返回：           
+			
+		 {
+		    "result":[
+			{
+			    "TraderCode":"9731833838",
+			    "Weight":150000,
+			    "City":"西安",
+			    "Country":"中国",
+			    "HoldTime":"2019-05-19T00:00:00",
+			    "TypeName":"线下展会",
+			    "MediaId":1,
+			    "MediaName":"fx110"
+			}
+		    ],
+		    "succeed":true,
+		    "message":"成功"
+		}
+返回说明：           
+		"TraderCode":"9731833838", //交易商code
+		"Weight":150000, //权重
+		"City":"西安",     //举办地
+		"Country":"中国",  //举办国家
+		"HoldTime":"2019-05-19T00:00:00",  //举办日期
+		"TypeName":"线下展会",   //类型
+		"MediaId":1,		//媒体id
+		"MediaName":"fx110"    //媒体名

@@ -13,6 +13,7 @@
             </div>
             <div class="item-box">
                 <mt-cell title="优惠券" to="" is-link></mt-cell>
+                <mt-cell title="付费点击" to="" is-link></mt-cell>
             </div>
         </div>
     </div>
@@ -47,11 +48,8 @@
     }
 </style>
 <script>
-import myHeader from '@/components/myHeader'
 export default{
-    components:{
-        myHeader
-    },
+    name:'pageFind',
     data(){
         return{
             title:'发现',

@@ -15,6 +15,7 @@
 <script>
     import mainNav from '@/components/mainNav'
     export default{
+        name:'mainPage',
         components:{
             mainNav
         }

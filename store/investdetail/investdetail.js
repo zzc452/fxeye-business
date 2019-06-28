@@ -17,25 +17,22 @@ export default{
         }
     },
     actions:{
-        async get_investDetailData({commit,state},{tradercode,dt}){
+        async get_onlineData({commit,state},query){
             let res
-            let historyDetail
-            historyDetail = state.historyDetail;
-            if(historyDetail && historyDetail[tradercode]){
-                res = historyDetail[tradercode]
-            }else{
-                let params = {
-                    'tradercode':tradercode,
-                    'dt':dt
-                }
-                await request('get','investDetail',params)
-                .then(json =>{
-                    res = json.result;
-                    state.historyDetail[tradercode] = res;
-                    historyDetail = state.historyDetail
-                })
-            }
-            commit('set_historyDetail',historyDetail);
+            let params = query
+            await request('get','investDetail',params)
+            .then(json =>{
+                res = json.result;
+            })
+            return res;
+        },
+        async get_offlineData({commit,state},query){
+            let res
+            let params = query
+            await request('get','investOfflineInfo',params)
+            .then(json =>{
+                res = json.result;
+            })
             return res;
         }
     }

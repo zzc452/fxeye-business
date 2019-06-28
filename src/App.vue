@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <transition >
+      <keep-alive include="mainPage">
         <router-view class='child-view'></router-view>
+      </keep-alive>
     </transition>
   </div>
 </template>

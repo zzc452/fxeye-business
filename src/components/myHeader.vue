@@ -1,7 +1,7 @@
 <template>
     <div class="myheader" :class="{'fixed':fixed}">
         <div class="top-bar">
-            <div class="abs-l"><slot name="left"></slot></div>
+            <div class="abs-l" @click.stop="gaback"><slot name="left" ></slot></div>
             <div class="abs-m"><slot name="mid"></slot><span class="label-txt">{{title}}</span></div>
             <div class="abs-r"><slot name="right"></slot></div>
         </div>
@@ -14,7 +14,18 @@
                 type:Boolean,
                 default:true
             },
-            title:String
+            title:String,
+            goBack:{
+                type:Boolean,
+                default:false
+            }
+        },
+        methods:{
+            gaback(){
+                if(this.goBack){
+                    this.$router.go(-1);
+                }
+            }
         }
     }
 </script>

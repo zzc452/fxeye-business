@@ -7,7 +7,8 @@ import Find from '../src/views/find/find.vue'
 import Sentiment from '../src/views/sentiment/sentiment.vue' //舆情列表页
 import Mine from '../src/views/mine/mine.vue'
 import Invest from '../src/views/invest/invest.vue'  //投放监测列表页
-import investInfo from '../src/views/investInfo/investInfo.vue'  //投放监测线上详情
+import onlineInfo from '../src/views/investInfo/onlineInfo.vue'  //投放监测线上详情
+import offlineInfo from '../src/views/investInfo/offlineInfo.vue'  //投放监测线下详情
 
 Vue.use(Router)
 
@@ -37,14 +38,19 @@ export default new Router({
           component:Mine
         }
       ]
+
     },{
       name:'invest',
       path:'/invest',
       component:Invest
     },{
-      name:'investdetail',
-      path:'/investdetail',
-      component:investInfo
+      name:'onlineinfo',
+      path:'/onlineinfo',
+      component:onlineInfo
+    },{
+      name:'offlineinfo',
+      path:'/offlineinfo',
+      component:offlineInfo
     }
   ]
 })
