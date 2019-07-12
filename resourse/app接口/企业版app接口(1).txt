@@ -1,0 +1,435 @@
+1.获取线上排行
+正式地址：http://business.wweb012.fxeyeinterface.com/app/getonlinerank?top=10&dt=2019-05
+测试地址：http://192.168.1.246:4556/app/getonlinerank?top=10&dt=2019-05
+
+请求方式：GET
+请求头部：Content-Type:application/json;charset=UTF-8
+		
+参数说明：	   top       数量
+		   dt        日期（精确到月）
+		   
+返回：           
+						
+			{
+			    "result":[
+				{
+				    "TraderCode":"0001461138",
+				    "ChineseShortName":null,
+				    "EnglishShortName":"XM",
+				    "Logo":"/logo/0001461138/FXT_0001461138_400x226_92869.png",
+				    "Ico":"/ico/0001461138/FXT_0001461138_100x100_89595.png",
+				    "Effect":8.1
+				}
+			    ],
+			    "succeed":true,
+			    "message":"成功"
+			}
+返回说明：          
+			"TraderCode":"0001461138",  //交易商code
+			"ChineseShortName":null,    //中文简称
+			"EnglishShortName":"XM",    //英文简称
+			"Logo":"/logo/0001461138/FXT_0001461138_400x226_92869.png",  //交易商logo
+			"Ico":"/ico/0001461138/FXT_0001461138_100x100_89595.png",    //交易商ico
+			"Effect":8.1  //百分比
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+２.获取单个交易商线上详情
+正式地址：http://business.wweb012.fxeyeinterface.com/app/getonlinedetail?tradercode=0361170645&dt=2019-05
+测试地址：http://192.168.1.246:4556/app/getonlinedetail?tradercode=0361170645&dt=2019-05
+
+请求方式：GET
+请求头部：Content-Type:application/json;charset=UTF-8
+
+参数说明：	   tradercode	    交易商code
+		   dt		    日期（精确到月）
+返回：           
+			
+		 {
+		    "result":[
+			{
+			    "Month":"2019-05-01T00:00:00",
+			    "MediaId":1,
+			    "MediaName":"fx110"
+			},
+			{
+			    "Month":"2019-05-01T00:00:00",
+			    "MediaId":3,
+			    "MediaName":"FX168"
+			},
+			{
+			    "Month":"2019-05-01T00:00:00",
+			    "MediaId":4,
+			    "MediaName":"汇通网"
+			},
+			{
+			    "Month":"2019-05-01T00:00:00",
+			    "MediaId":22,
+			    "MediaName":"和讯"
+			}
+		    ],
+		    "succeed":true,
+		    "message":"成功"
+		}
+返回说明：           
+		"Month":"2019-05-01T00:00:00",  //时间
+		"MediaId":1,    //媒体id
+		"MediaName":"fx110"  //媒体名
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+3.获取线下排行
+正式地址：http://business.wweb012.fxeyeinterface.com/app/getofflinerank?top=10&dt=2019-05
+测试地址：http://192.168.1.246:4556/app/getofflinerank?top=10&dt=2019-05
+
+请求方式：GET
+请求头部：Content-Type:application/json;charset=UTF-8
+
+参数说明：	   top       数量
+		   dt        日期（精确到月）
+返回：           
+		{
+		    "result":[
+			{
+			    "TraderCode":"9731833838",
+			    "ChineseShortName":"友邦外汇",
+			    "EnglishShortName":"UBANK",
+			    "Logo":"/logo/9731833838/FXT9731833838_295660.png",
+			    "Ico":"/ico/9731833838/FXT9731833838_766657.png",
+			    "people":1569
+			},
+			{
+			    "TraderCode":"0001816946",
+			    "ChineseShortName":null,
+			    "EnglishShortName":"GMI",
+			    "Logo":"/logo/0001816946/FXT_0001816946_400x226.png",
+			    "Ico":"/ico/0001816946/FXT_0001816946_100x100_23183.png",
+			    "people":1524
+			},
+			{
+			    "TraderCode":"0001390005",
+			    "ChineseShortName":null,
+			    "EnglishShortName":"Exness",
+			    "Logo":"/logo/0001390005/FXT_0001390005_400x226.png",
+			    "Ico":"/ico/0001390005/FXT_0001390005_100x100.png",
+			    "people":1305
+			}
+		    ],
+		    "succeed":true,
+		    "message":"成功"
+		}
+返回说明：
+
+
+		"TraderCode":"9731833838",  //交易商code
+		"ChineseShortName":"友邦外汇",  //中文简称
+		"EnglishShortName":"UBANK", //英文简称
+		"Logo":"/logo/9731833838/FXT9731833838_295660.png",  //交易商logo
+		"Ico":"/ico/9731833838/FXT9731833838_766657.png",   //交易商ico
+		"people":1569   人数
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.获取单个交易商线下详情
+正式地址：http://business.wweb012.fxeyeinterface.com/app/getofflinedetail?tradercode=0361170645&dt=2019-05
+测试地址：http://192.168.1.246:4556/app/getofflinedetail?tradercode=0361170645&dt=2019-05
+
+请求方式：GET
+请求头部：Content-Type:application/json;charset=UTF-8
+
+参数说明：	   tradercode	    交易商code
+		   dt		    日期（精确到月）
+返回：           
+			
+		 {
+		    "result":[
+			{
+			    "TraderCode":"9731833838",
+			    "Weight":150000,
+			    "City":"西安",
+			    "Country":"中国",
+			    "HoldTime":"2019-05-19T00:00:00",
+			    "TypeName":"线下展会",
+			    "MediaId":1,
+			    "MediaName":"fx110"
+			}
+		    ],
+		    "succeed":true,
+		    "message":"成功"
+		}
+返回说明：           
+		"TraderCode":"9731833838", //交易商code
+		"Weight":150000, //权重
+		"City":"西安",     //举办地
+		"Country":"中国",  //举办国家
+		"HoldTime":"2019-05-19T00:00:00",  //举办日期
+		"TypeName":"线下展会",   //类型
+		"MediaId":1,		//媒体id
+		"MediaName":"fx110"    //媒体名
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.意见反馈
+正式地址：http://business.wweb012.fxeyeinterface.com/app/feedback
+测试地址：http://192.168.1.246:4556/app/feedback
+
+请求方式：POST
+请求头部：Content-Type:application/json;charset=UTF-8
+
+参数：{
+	"TraderCode": "9731833838",
+	"UserName": "阿里巴巴",
+	"Mobile": "13333333333",
+	"Content": "太垃圾了",
+	}
+
+参数说明：	   
+		    TraderCode       交易商code
+		    UserName         反馈人
+		    Mobile           联系方式
+		    Content          反馈内容
+返回： 
+         {"result":3,"succeed":true,"message":"成功"}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6.根据交易商code获取IB信息
+正式地址：http://business.wweb012.fxeyeinterface.com/ib/getone?tradercode=0361564256
+测试地址：http://192.168.1.246:4556/app/ib?tradercode=0361564256
+
+请求方式：GET
+请求头部：Content-Type:application/json;charset=UTF-8
+		
+参数说明：	   tradercode  交易商code
+返回：           
+			{
+				"result": {
+					"Id": 3, //id
+					"TraderCode": "0361564256", //交易商code
+					"IsEA": true, //是否支持EA
+					"IsCommission": true, //是否支持外佣
+					"CommissionSpread": 0.0, //最大外佣点差
+					"CommissionDollar": 0,  //最大外佣美元
+					"DollarSpreadHigh": 10.0, //主要外汇点差（最高）
+					"DollarSpreadLow": 0.0, //主要外汇点差（最低）
+					"DollarSpreadRebate": 10.0, //主要外汇点差（返佣）
+					"GoldSpreadHigh": 10.0, //主要黄金点差（最高）
+					"GoldSpreadLow": 0.0, //主要黄金点差（最低）
+					"GoldSpreadRebate": 10.0, //主要黄金点差（返佣）
+					"RebateCycle": 3, //返佣周期
+					"WithdrawalSpeed": 1, //出金速度
+					"Features": "11111434343", //平台特色
+					"IsBChannel": false, //是否支持B通道
+					"IsEnable": true, //是否启用
+					"IBContact": [{ //联系人
+						"Id": 191, //id
+						"IBId": 3, //ibid
+						"UserName": "4354", //姓名
+						"Sex": 2,  //性别
+						"SexEnum": "女",  //性别（文字）
+						"Position": "", //职务
+						"TwoCharCode": "", //二位国家代码
+						"AreaCode": "", //地区码
+						"PhoneNumber": "13952136843", //手机号
+						"Email": "", //电子邮件
+						"QQ": "", //QQ
+						"WeChat": "", //微信
+						"Remark": "23232", //简介
+						"Order": 1 //排序
+					}, {
+						"Id": 192,
+						"IBId": 3,
+						"UserName": "333",
+						"Sex": 1,
+						"SexEnum": "男", 
+						"Position": "",
+						"TwoCharCode": "", //二位国家代码
+						"AreaCode": "",
+						"PhoneNumber": "13952136842",
+						"Email": "123@qq.com",
+						"QQ": "",
+						"WeChat": "",
+						"Remark": "",
+						"Order": 2
+					}],
+					"UpdateTime": "2018-10-30T15:35:29.933", //更新时间
+					"CreateTime": "2018-10-29T16:41:01.6" //创建时间
+				},
+				"succeed": true,
+				"message": "成功"
+			}
+返回说明          result  IB信息
+                  succeed 成功或失败
+		  message 原因
+
+
+
+枚举
+    /// <summary>
+    /// 返佣周期
+    /// </summary>
+    public enum E_IBRebate
+
+    {
+        日返 = 1,
+        周返 = 2,
+        月返 = 3,
+        平仓 = 4
+    }
+
+    /// <summary>
+    /// 出金速度
+    /// </summary>
+    public enum E_WithdrawalSpeed
+    {
+        实时 = 1,
+        当日 = 2,
+        次日 = 3,
+        其他 = 4
+    }
+
+
+
+    
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7.验证用户是否有资格访问企业版
+正式地址：http://business.wweb012.fxeyeinterface.com/app/loginvalidate?userid=1272460138&twocharcode=cn&areacode=0086&mobile=15800633747
+测试地址：http://192.168.1.246:4556/app/loginvalidate?userid=1272460138&twocharcode=cn&areacode=0086&mobile=15800633747
+
+
+请求方式：GET
+请求头部：Content-Type:application/json;charset=UTF-8
+		
+参数说明：	   userid	用户id
+		   twocharcode  国家二位码
+		   areacode     地区code
+		   mobile       手机
+返回： 
+	{
+	"succeed": true,
+	"message": "成功"
+	}
+
+
+返回说明          
+                  succeed 成功或失败
+		  message 原因
+	
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8.根据userid获取企业版用户信息
+正式地址：http://business.wweb012.fxeyeinterface.com/app/getuser?userid=1272460138
+测试地址：http://192.168.1.246:4556/app/getuser?userid=1272460138
+
+
+请求方式：GET
+请求头部：Content-Type:application/json;charset=UTF-8
+		
+参数说明：	   userid	用户id
+		   twocharcode  国家二位码
+		   areacode     地区code
+		   mobile       手机
+返回： 
+	{
+	"result": {
+		"Id": 16,
+		"UserId": "1272460138",
+		"UserName": null,
+		"Email": null,
+		"TwoCharCode": "CN",
+		"TraderCode": "1071395281",
+		"AreaCode": "0086",
+		"PhoneNumber": "158****3747",
+		"EncryptedPhone": "Db1LKAMIMHZZQdzFHNVCrA==",
+		"MD5Phone": "6e4871b3903c625f0800cc6a6e502f61",
+		"StartTime": "2019-06-03T00:00:00",
+		"EndTime": "2019-08-01T00:00:00",
+		"Version": 3,
+		"Type": 99,
+		"Status": 1,
+		"ApplyTime": "2019-06-03T11:28:37.303",
+		"UpdateTime": "2019-07-04T12:25:52.597",
+		"CreateTime": "2019-06-03T11:28:37.66"
+	},
+	"succeed": true,
+	"message": "成功"
+	}
+
+
+返回说明          
+                 "Id": 16,                                 //id
+		"UserId": "1272460138",                    //userid
+		"UserName": null,			   //用户名
+		"Email": null,			           //邮箱
+		"TwoCharCode": "CN",			   //二位国家码
+		"TraderCode": "1071395281",		   //所属交易商code
+		"AreaCode": "0086",		           //地区码
+		"PhoneNumber": "158****3747",	          //手机号
+		"EncryptedPhone": "Db1LKAMIMHZZQdzFHNVCrA==",   //手机号（可逆）
+		"MD5Phone": "6e4871b3903c625f0800cc6a6e502f61", //手机号（不可逆）
+		"StartTime": "2019-06-03T00:00:00",		//有效期（开始）
+		"EndTime": "2019-08-01T00:00:00",               //有效期（结束）
+		"Version": 3,					//版本 （1-低级  2-中级 3-高级）
+		"Type": 99,					//类型（99-主  1-子）
+		"Status": 1,					//状态 （1-正常 0-禁用）
+		"ApplyTime": "2019-06-03T11:28:37.303",        //申请时间
+		"UpdateTime": "2019-07-04T12:25:52.597",       //更新时间
+		"CreateTime": "2019-06-03T11:28:37.66"         //创建时间
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9.根据交易商code获取竞争对手
+正式地址：http://business.wweb012.fxeyeinterface.com/app/getcompetition?tradercode=0361522841
+测试地址：http://192.168.1.246:4556/app/getcompetition?tradercode=0361522841
+
+
+请求方式：GET
+请求头部：Content-Type:application/json;charset=UTF-8
+		
+参数说明：	   tradercode	交易商code
+
+返回： 
+	{
+	"result": [{
+		"TraderCode": "0361522841",
+		"ChineseShortName": "艾拓思",
+		"EnglishShortName": "AETOS",
+		"Logo": "https://eimgjys.fxeye.com//logo/0361522841/FXT_0361522841_400x226.png_fxeye-template-global",
+		"Ico": "https://eimgjys.fxeye.com//ico/0361522841/FXT_0361522841_100x100_73510.png_fxeye-template-global"
+	}, {
+		"TraderCode": "0001994246",
+		"ChineseShortName": "爱汇",
+		"EnglishShortName": "ActivTrades",
+		"Logo": "https://eimgjys.fxeye.com//logo/0001994246/FXT_0001994246_400x226.png_fxeye-template-global",
+		"Ico": "https://eimgjys.fxeye.com//ico/0001994246/FXT_0001994246_100x100.png_fxeye-template-global"
+	}, {
+		"TraderCode": "3551305521",
+		"ChineseShortName": "博汇",
+		"EnglishShortName": "BENDEX",
+		"Logo": "https://eimgjys.fxeye.com//logo/3551305521/FXT_3551305521_400x226.png_fxeye-template-global",
+		"Ico": "https://eimgjys.fxeye.com//ico/3551305521/FXT_3551305521_100x100.png_fxeye-template-global"
+	}, {
+		"TraderCode": "4501580150",
+		"ChineseShortName": "佰益汇环球",
+		"EnglishShortName": "BYFX Global",
+		"Logo": null,
+		"Ico": null
+	}],
+	"succeed": true,
+	"message": "成功"
+	}
+
+
+返回说明          
+                "TraderCode": "0361522841",                //交易商code
+		"ChineseShortName": "艾拓思",		   //交易商中文简称
+		"EnglishShortName": "AETOS",               //交易商英文简称
+		"Logo": "https://eimgjys.fxeye.com//logo/0361522841/FXT_0361522841_400x226.png_fxeye-template-global",     //交易商logo
+		"Ico": "https://eimgjys.fxeye.com//ico/0361522841/FXT_0361522841_100x100_73510.png_fxeye-template-global"  //交易商ico
+	

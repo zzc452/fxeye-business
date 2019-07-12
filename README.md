@@ -1,1 +1,1 @@
-此目录为vue目录
+拉取项目后,执行当前目录下执行命令"npm install"如果在苹果环境下请执行"sudo npminstall"

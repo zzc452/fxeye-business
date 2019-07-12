@@ -1,12 +1,12 @@
 <template>
     <div id="loading" v-if="visible" :class="type === 'absolute' ? 'absolute' : ''">
         <div class="loading-container" v-if="visible === 'loading'">
-            <mt-spinner :type="3" :size='size' :color="color"></mt-spinner>
         </div>
-        <div class="error-container" v-else-if="visible === 'error'">
+        <div class="error-container" v-else-if="visible === 'error'" @click.stop='reload'>
             <div class="error-box">
-                <p class="error-txt">网络出现错误</p>
-                <mt-button class="error-btn" type='danger' @click.stop='reload'>重试</mt-button>
+                <img src="../assets/img/data_error.png" alt="">
+                <h4>网络拥堵，信号挤丢了</h4>
+                <p>点击屏幕刷新</p>
             </div>
         </div>
     </div>
@@ -40,10 +40,15 @@
         position: fixed;
         z-index: 622;
         top:0;
+        left:0;
         background: #fff;
         background-size: 42% auto;
         &.absolute{
             position: absolute;
+        }
+        .loading-container{
+            background: url(../assets/img/loading_logo.gif) center 38% no-repeat;
+            background-size: 60% auto;
         }
         .loading-container,.error-container{
             position: relative;
@@ -55,23 +60,23 @@
             position: absolute;
             left: 0;
             right: 0;
-            top: 30%;
+            top: 2.64rem;
             text-align: center;
             line-height: 30px;
-            .error-txt {
-                color: #aaa;
-                margin-bottom: 10px;
+            img{
+                width: 4.0rem;
+                margin-bottom: 0.613333rem;
+            }
+            h4{
                 font-size: 16px;
+                color: #8aa6bf;
+                font-family: $pingbold;
             }
-            .error-btn {
-                border-radius: 5px;
+            p{
+                font-size: 14px;
+                color: #b8c2cc;
+                font-family: $pingmedium;
             }
-        }
-        span {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            margin-left: -18px;
         }
     }
 </style>

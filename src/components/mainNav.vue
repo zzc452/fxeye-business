@@ -37,6 +37,8 @@
             z-index: 223;
             background: none;
             .mint-tab-item{
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                -webkit-tap-highlight-color: transparent;
                 padding: 6px 0 0;
                 text-align: center;
                 .mint-tab-item-icon{
@@ -71,7 +73,7 @@
         data(){
             return{
                 selected:'home',
-                isLogin:true
+                // isLogin:true
             }
         },
         props:{
@@ -92,7 +94,18 @@
         methods:{
             
         },
+        computed:{
+            isLogin(){
+                return this.$store.state.index.user ? true:false;
+            }
+        },
         created(){
+            let val = cache.getSession('index_nav');
+            if(val){
+                this.selected = val;
+            }
+        },
+        activated(){
             let val = cache.getSession('index_nav');
             if(val){
                 this.selected = val;

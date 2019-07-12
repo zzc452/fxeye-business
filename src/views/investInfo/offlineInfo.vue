@@ -11,8 +11,9 @@
                         <tr><td class="td1">地区</td><td>{{`${val.Country}-${val.City}`}}</td></tr>
                     </table>
                 </div>
+                <!-- 加载提示 -->
+                <my-loading :visible="loading" :reload="init" type="absolute"></my-loading>
             </div>
-            <my-loading :visible="loading" :reload='init'></my-loading>
         </div>
     </div>
 </template>

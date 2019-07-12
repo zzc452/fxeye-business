@@ -1,18 +1,13 @@
 <template>
-  <div v-swiper:swiperRight="isSwiperRight" class="tongfangjianche content">
+  <div v-swiper:swiperRight="false" class="tongfangjianche content">
     <my-header title="投放检测">
       <div class="turn-back" @click="$router.go(-1)" slot="left">
         <img class="icon-back" src="../../assets/img/back_left.png">
       </div>
     </my-header>
     <div class="head">
-      <div class="text">
-        <span @click="selectMenu('top30')" v-bind:class="{ action: active=='top30' }">线上TOP30</span>
-        <span @click="selectMenu('top20')" v-bind:class="{ action: active=='top20' }">线下TOP20</span>
-        <div class="line" v-bind:style="{ marginLeft:(active=='top20'?60:30)+'%'}"></div>
-      </div>
+      <my-tab v-model="active" :value="active" :tabInfo="tabNav"></my-tab>
     </div>
-
     <mt-tab-container swipeable v-model="active">
       <mt-tab-container-item id="top30">
         <div class="container zhong">
@@ -20,8 +15,8 @@
             <div class="timebox">
               <span class="rilixuzhe" @click="selectCalendar">
                 {{ getRiQi() }}
-                <img class="icon" v-if="selectDown" src="@/assets/img/find.png">
-                <img class="icon" v-else src="@/assets/img/find.png">
+                <img class="icon" v-if="selectDown" src="@/assets/img/xiasanjiao.png">
+                <img class="icon" v-else src="@/assets/img/xiasanjiao.png">
               </span>
               <span class="showtime">{{ getCurrDate() }}</span>
             </div>
@@ -56,7 +51,7 @@
                   </div>
                   <div class="buttonbox">
                     <router-link
-                      :to="'/onlineinfo?tradercode='+(item&&item.TraderCode?item.TraderCode:'')+'&dt='+get_Date()+'&tradername='+(item&&item.ChineseShortName?item.ChineseShortName:(item&&item.EnglishShortName?item.EnglishShortName:'未知'))"
+                      :to="'/onlineinfo?tradercode='+(item&&item.TraderCode?item.TraderCode:'')+'&dt='+get_Date()+'&tradername='+(item&&item.ChineseShortName?item.ChineseShortName:(item&&item.EnglishShortName?item.EnglishShortName:'未知')+'&icon='+(item&&item.Ico?item.Ico:''))"
                     >
                       <span class="button">详情</span>
                     </router-link>
@@ -72,8 +67,8 @@
           <div class="timebox">
             <span class="rilixuzhe" @click="selectCalendar">
               {{ getRiQi() }}
-              <img class="icon" v-if="selectDown" src="@/assets/img/find.png">
-              <img class="icon" v-else src="@/assets/img/find.png">
+              <img class="icon" v-if="selectDown" src="@/assets/img/xiasanjiao.png">
+              <img class="icon" v-else src="@/assets/img/xiasanjiao.png">
             </span>
             <span class="showtime">{{ getCurrDate() }}</span>
           </div>
@@ -86,27 +81,24 @@
                   <div class="traderName">
                     {{ item&&item.ChineseShortName?item.ChineseShortName:(item&&item.EnglishShortName?item.EnglishShortName:"未知") }}
                     <line-progres
-                      :id="1"
+                      :id="'top20'+index"
                       :width="100"
-                      :radius="8"
                       :progress="item&&item.people?item.people:0"
                       :delay="200"
-                      :duration="1000"
+                      
                       barColor="#f16816"
                       backgroundColor="#e5e5e5"
                       :isAnimation="false"
-                      :FenMu="list20&&list20.length>0&&list20[0].people?list20[0].people:0"
+                      :FenMu="list20&&list20.length>0&&list20[0].people?list20[0].people:10000"
                     ></line-progres>
                   </div>
                   <router-link
-                    :to="'/offlineinfo?tradercode='+item.TraderCode+'&dt='+get_Date()+'&tradername='+(item&&item.ChineseShortName?item.ChineseShortName:(item&&item.EnglishShortName?item.EnglishShortName:'未知'))"
+                    :to="'/offlineinfo?tradercode='+item.TraderCode+'&dt='+get_Date()+'&tradername='+(item&&item.ChineseShortName?item.ChineseShortName:(item&&item.EnglishShortName?item.EnglishShortName:'未知'))+'&icon='+(item&&item.Ico?item.Ico:'')"
                   >
                     <span class="xiangqing">详情</span>
                   </router-link>
                 </div>
               </li>
-              <li></li>
-              <li></li>
             </ul>
           </div>
         </div>
@@ -133,7 +125,9 @@ import ClicleProgres from "./circel";
 import LineProgres from "./line";
 import moment from "moment";
 import { request } from "../../../utils/request";
+    import myTab from '@/components/myTab' 
 export default {
+  name:'invest',
   data() {
     return {
       color: "#f16816",
@@ -144,12 +138,20 @@ export default {
       selectDown: true,
       loading: "loading",
       isSwiperRight: false,
-      active: "top30"
+      active: "top30",
+      tabNav:[{
+                    title:'线上TOP30',
+                    id:'top30'
+                },{
+                    title:'线下TOP20',
+                    id:'top20'
+                }],
     };
   },
   components: {
     ClicleProgres,
-    LineProgres
+    LineProgres,
+    myTab
   },
   mounted() {
     //this.pickerValue=new Date();
@@ -281,6 +283,7 @@ export default {
         .icon {
           width: 10px;
           margin-left: 10px;
+          margin-top: 4px;
         }
       }
     }
@@ -372,8 +375,6 @@ export default {
       }
     }
     .top20ulbox {
-      li {
-      }
       .item {
         font-size: 10px;
         border-bottom: 1px solid $borderColor;
@@ -399,6 +400,7 @@ export default {
         .traderName {
           display: inline-block;
           color: $colorGray1;
+          max-width: 50%;
         }
       }
     }

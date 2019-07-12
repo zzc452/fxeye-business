@@ -14,9 +14,9 @@
                     </li>
                 </ul>
             </div>
+            <!-- 请求提示 -->
+            <my-loading :visible='loading' :reload='init' type='absolute'></my-loading>
         </div>
-        <!-- 请求提示 -->
-        <my-loading :visible='loading' :reload='init'></my-loading>
     </div>
 </template>
 

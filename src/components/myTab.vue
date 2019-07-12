@@ -46,6 +46,8 @@ export default {
         .item{
             padding-top: 17px;
             cursor: pointer;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-tap-highlight-color: transparent;
             display: inline-block;
             margin:0 15px;
             height: 50px;

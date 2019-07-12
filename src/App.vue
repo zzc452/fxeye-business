@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <transition >
-      <keep-alive include="mainPage">
+    <transition :name='transitionName'>
+      <keep-alive :include="['mainPage','invest','coupon']">
         <router-view class='child-view'></router-view>
       </keep-alive>
     </transition>
@@ -11,7 +11,7 @@
   export default{
     data(){
       return {
-        transitionName: ''
+        transitionName: 'slide-left'
       }
     },
     beforeRouteUpdate(to,from,next){
@@ -34,8 +34,8 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  // .child-view{
-  //   transition: all 0.3s ease;
-  // }
+  .child-view{
+    transition: all 0.3s ease;
+  }
 }
 </style>

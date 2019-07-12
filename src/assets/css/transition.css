@@ -9,7 +9,7 @@
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
 }
-.toggleSide-enter-active，.toggleSide-leave{
+.toggleSide-enter-active,.toggleSide-leave{
     -webkit-transform: translate3d(0, 0%, 0);
     transform: translate3d(0, 0%, 0);
 }

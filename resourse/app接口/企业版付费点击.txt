@@ -1,0 +1,4 @@
+1.点击统计 
+  详见  http://192.168.1.180:65/document_detail/doc173_10003.html
+2.点击信息
+  详见  http://192.168.1.180:65/document_detail/doc173_10002.html

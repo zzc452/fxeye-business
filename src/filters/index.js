@@ -1,16 +1,21 @@
 export let formatTime = (timestamp,format)=>{
-    if( !timestamp.includes('-') &&  !timestamp.includes('.')){
-        timestamp=parseInt(timestamp)*1000;//格式化时间戳
+    if(timestamp instanceof Date){
+        var date = timestamp;
     }else{
-        try{
-            timestamp = new Date(timestamp).valueOf();
+        timestamp = timestamp+'';
+        if( !timestamp.includes('-') &&  !timestamp.includes('.')){
+            timestamp=parseInt(timestamp)*1000;//格式化时间戳
+        }else{
+            try{
+                if(timestamp.length<18){timestamp=timestamp.replace(/-/g,'/')}
+                timestamp = new Date(timestamp).valueOf();
+            }
+            catch(err){
+                throw new Error('当前值不适用时间格式化过滤器');
+            }
         }
-        catch(err){
-            throw new Error('当前值不适用时间格式化过滤器');
-        }
+        var date = new Date(timestamp);
     }
-    
-    var date = new Date(timestamp);
     var o = {
         "M+" :date.getMonth() + 1, // month
         "d+" :date.getDate(), // day
@@ -32,3 +37,11 @@ export let formatTime = (timestamp,format)=>{
     }
     return format;
 }
+export let formatMonth = (month,format)=>{
+    let arr = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+    return arr[month];
+}
+export let formatNull = (val)=>{
+    return val == ''|| val == null ? '--' :val;
+}
+

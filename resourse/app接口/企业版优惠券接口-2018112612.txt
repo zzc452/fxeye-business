@@ -1,0 +1,101 @@
+一：限定说明
+
+请求头部：Content-Type:application/json;charset=UTF-8
+测试地址：http://192.168.1.171:85/
+正式地址：http://fxeyeapislave.wweb001.fxeyeinterface.com/
+
+二：接口说明
+
+1:获取参加优惠券活动人数
+
+HTTP方法：GET
+接口路径：coupon/user/count/?time=xxxx
+参数示例：time=2018-11-26
+参数说明：
+time:过滤时间，格式yyyy-MM-dd，选填,不传递或参数值为Null时不限制时间
+返回结果：{"succeed":true,"message":"success","result":1}
+结果说明：
+succeed:标识当前接口是否成功返回
+message:返回的说明信息
+result:人数
+
+2：获取交易商优惠券信息
+
+HTTP方法：GET
+接口路径：coupon/trader/list/?index=xxxx&size=xxxx&code=xxxx&time=xxxxx&enabled=xxxx&content=xxxx
+参数示例：code=0361950064&index=1&size=30&time=2018-11-23&enabled=true&content=开户
+参数说明：
+code:交易商Code,必填
+index:页数
+size:每页返回的数目
+time:优惠券投放的过滤时间，格式yyyy-MM-dd，选填,不传递或参数值为Null时不限制时间
+enabled:优惠券状态，选填，true：有效，false：失效，不传递或参数值为Null时不限制状态
+content:搜索内容
+返回结果：
+
+{
+
+    "result": {
+        "total": 1,
+        "items": [
+            {
+                "cid": "95304652",
+                "name": "激石集团送您一张优惠券",
+                "total": 100,
+                "received": 0,
+                "enabled": true,
+                "effectivedAt": "2018-11-07T15:45:33.18",
+                "expiredAt": "2018-11-21T15:45:33.18",
+                "image": "http://img.fxeye.com/coupon/5743208035/coupon-banner.png_fxeye-template-global"
+            }
+        ]
+    },
+    "succeed": true,
+    "message": "success"
+
+}
+
+
+结果说明：
+succeed:标识当前接口是否成功返回
+message:返回的说明信息
+total:优惠券数量
+cid:优惠券唯一标识ID
+name:优惠券名称
+total：优惠券总投放数
+received:优惠券被领取数
+enabled:优惠券状态（true：启用，false：禁用）
+effectivedAt:优惠券生效时间
+expiredAt:优惠券过期时间
+image:图片地址
+
+3：获取已领取指定优惠券的用户信息
+
+HTTP方法：GET
+接口路径：coupon/user/list/?cid=xxxx
+参数示例：cid=68532157
+参数说明：优惠券唯一标识ID
+返回结果：
+
+{
+
+    "result": [
+        {
+            "name": null,
+            "phone": "15001965977",
+            "email": null,
+            "receivedAt": "2018-11-08T15:54:00.27"
+        }
+    ],
+    "succeed": true,
+    "message": "success"
+
+}
+
+结果说明：
+succeed:标识当前接口是否成功返回
+message:返回的说明信息
+name:用户实际姓名，未实名认证的用户该字段值为Null
+phone:手机号
+email:Email地址
+receivedAt:优惠券的领取时间
